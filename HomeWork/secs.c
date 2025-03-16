@@ -1,36 +1,24 @@
 #include<stdio.h>
-#include<math.h>
-int main () {
-    int a, b, c, x1, x2;
-    printf("a = ");
-    scanf("%d", &a);
 
-    printf("b = ");
-    scanf("%d", &b);
-
-    printf("c = ");
-    scanf("%d", &c);
-
-    if ((pow(b,2)-(4*a*c)) > 0){
-
-        x1 = (-b + sqrt(pow(b,2)-(4*a*c))) / (2 * a);
-        printf("x1 is = %d\n", x1);
-
-        x2 = (-b - sqrt(pow(b,2)-(4*a*c))) / (2 * a);
-        printf("x2 is = %d\n", x2);
-
+int lcm(int n1, int n2){
+    static int lcmnum = 0;
+    if(n1 < n2){
+         lcmnum = n2;
+    }else{
+        lcmnum = n1;
     }
-    else if ((pow(b,2)-(4*a*c)) == 0){
-
-        x1 = -b / (2 * a);
-        printf("value of x is = %d\n", x1);
-
-    }
-    else if ((pow(b,2)-(4*a*c)) < 0)
-    {
-        printf("value is imaginary");
-    }
-
-    return 0;
     
+    if(lcmnum % n1 == 0 && lcmnum % n2 == 0){
+        return lcmnum;
+    }else{
+        lcmnum++;
+        return lcm(n1, n2);
+    }
+   
+}
+ 
+int main () {
+    int n1 = 2, n2 = 3;
+    int ans = lcm(n1, n2);
+    printf("%d", ans);
 }

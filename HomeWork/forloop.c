@@ -1,7 +1,17 @@
 #include<stdio.h>
 
 int main (){
-    for(int i = 1 ; i<=10 ; i+=1){
-        printf("%d \n", i);
+    char str[3][50] = {"sdns", "fdfdf"};
+
+    for(int i = 0 ; i < 3; i++){
+         
+
+        
+        printf("%s", str[i]);
+        
+        printf("\n");
     }
+
+    int ans = strlen(str);
+    printf("%d", ans);
 }
